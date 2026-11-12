@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "riskmodels"
+version = "1.0.0"
+description = "Market risk models: VaR/ES with Kupiec/Christoffersen/Basel backtests, from-scratch Gaussian HMM regimes, Bayesian networks"
+authors = [{ name = "Dr. Muhammad Imran Bhatti" }]
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26", "pandas>=2.0", "scipy>=1.11"]
+
+[project.optional-dependencies]
+bayes = ["pgmpy>=0.1.25", "networkx>=3"]
+notebooks = ["matplotlib>=3.8", "seaborn>=0.13", "yfinance>=0.2.40", "hmmlearn>=0.3", "jupyter"]
+dev = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
